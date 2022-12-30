@@ -1,0 +1,217 @@
+#VRML_SIM R2021b utf8
+WorldInfo {
+  info [
+    "This demonstration shows a DJI Mavic 2 PRO flying over a rural area."
+    "After the drone has taken off, you can control it with the keyboard of your computer."
+  ]
+  title "DJI Mavic 2 PRO demo"
+  basicTimeStep 8
+  defaultDamping Damping {
+    linear 0.5
+    angular 0.5
+  }
+  coordinateSystem "NUE"
+}
+Viewpoint {
+  orientation 0.16513184035377712 -0.9713374506682333 -0.17098254949178943 4.909485063188079
+  position 12.507221219757678 6.345234743453109 6.461063178926142
+  near 0.2
+  follow "Mavic 2 PRO"
+  followSmoothness 0.2
+}
+TexturedBackground {
+  luminosity 3
+}
+TexturedBackgroundLight {
+}
+Floor {
+  size 400 400
+  tileSize 6 6
+  appearance SandyGround {
+  }
+}
+Solid {
+  translation -12.86 1.5356306010484417 -2.58
+  children [
+    DEF body_box Shape {
+      appearance Appearance {
+        material Material {
+          diffuseColor 0.333333 0 0.498039
+        }
+      }
+      geometry Box {
+        size 1 3 1
+      }
+    }
+  ]
+  name "body box(1)"
+  boundingObject USE body_box
+  physics Physics {
+    mass 1
+  }
+}
+Pine {
+  translation -6.0429 0 -1.67205
+  name "pine tree(8)"
+}
+Pine {
+  translation -21.4529 0 -5.64205
+  name "pine tree(7)"
+}
+Road {
+  translation -43.8 0.01 -9.2
+  rotation 0 1 0 1.1781
+  width 3
+  numberOfLanes 1
+  rightBorder FALSE
+  leftBorder FALSE
+  wayPoints [
+    0 0 0
+    0 0 100
+    200 0 200
+  ]
+  splineSubdivision 8
+  appearance Pavement {
+    type "black stone"
+  }
+}
+Windmill {
+  translation -43.8656 0 19.8433
+  rotation 0 1 0 -1.0472
+}
+Windmill {
+  translation -44.258 0 27.3356
+  rotation 0 1 0 -1.0472
+  name "windmill(1)"
+}
+Windmill {
+  translation -46.2448 0 -30.573
+  rotation 0 1 0 -1.0472
+  name "windmill(2)"
+}
+Windmill {
+  translation -38.75 0 -23.4
+  rotation 0 1 0 -1.5708
+  name "windmill(3)"
+}
+SmallManor {
+  translation -50.35 0 -11.25
+  rotation 0 1 0 4.32
+}
+SquareManhole {
+  translation 0 -0.03 0
+}
+CardboardBox {
+  translation 1.9698 0.3 2.08704
+  rotation 0 1 0 -0.261795307179586
+}
+TeslaModel3Simple {
+  translation -41.5139 0.31 -4.34169
+  rotation 0 -1 0 -1.309
+}
+Pine {
+  translation -14.0083 0 14.4828
+  rotation 0 1 0 3.14159
+}
+Pine {
+  translation -19.6195 0 24.3783
+  rotation 0 1 0 2.87979
+  name "pine tree(1)"
+}
+Pine {
+  translation -22.0129 0 -4.21205
+  name "pine tree(3)"
+}
+Pine {
+  translation -10.6926 0 25.1339
+  name "pine tree(4)"
+}
+Pine {
+  translation -14.3441 0 -14.5621
+  name "pine tree(5)"
+}
+Pine {
+  translation -26.6328 0 7.1707
+  name "pine tree(6)"
+}
+Pine {
+  translation -9.37029 0 -14.0209
+  rotation 0 1 0 -2.618
+  name "pine tree(2)"
+}
+Forest {
+  translation 0 -0.01 0
+  shape [
+    200 200
+    200 0
+    50 0
+    50 50
+    -50 50
+    -50 -50
+    50 -50
+    50 0
+    200 0
+    200 -200
+    -200 -200
+    -200 200
+  ]
+  density 0.01
+  type "cherry tree"
+  randomSeed 1
+  maxHeight 12
+  minHeight 6
+  maxRadius 6
+  minRadius 3
+}
+Mavic2Pro {
+  translation 0.005307397497695432 0.08570872781523722 2.922704148751375e-07
+  rotation 0.024661851121323585 0.7068921785740584 0.7068912511625047 3.0922862938194045
+  controller "my_controller1"
+  bodySlot [
+    Lidar {
+      translation 0.050004 1.92096e-06 -0.0600002
+      rotation 0.6215139473338426 -0.6215159473336731 -0.47690495958779083 2.25159
+      horizontalResolution 6
+      fieldOfView 3.14159
+      numberOfLayers 1
+      maxRange 2
+    }
+    DistanceSensor {
+      translation 0.00391563 0 -0.0297434
+      rotation 0 -1 0 0.1308943867195747
+      name "dist_front"
+      lookupTable [
+        0 0 0
+        4 1000 0
+      ]
+      aperture 0.38
+    }
+    DistanceSensor {
+      translation 0.0398735 0.0279292 0
+      rotation -0.09269171116648352 0.704062084817699 -0.7040630848178195 -0.3697053071795864
+      name "dist_l"
+      lookupTable [
+        0 0 0
+        1.5 1000 0
+      ]
+      aperture 0.25
+    }
+    DistanceSensor {
+      translation 0.0409806 -0.0236602 0
+      rotation -0.09269081889494936 -0.7040691435239321 -0.7040561435212822 0.369705
+      name "dist_r"
+      lookupTable [
+        0 0 0
+        1.5 1000 0
+      ]
+      aperture 0.25
+    }
+  ]
+  cameraSlot [
+    Camera {
+      width 400
+      height 240
+      near 0.2
+    }
+  ]
+}
