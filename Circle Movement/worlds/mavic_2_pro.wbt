@@ -1,0 +1,173 @@
+#VRML_SIM R2021a utf8
+WorldInfo {
+  info [
+    "This demonstration shows a DJI Mavic 2 PRO flying over a rural area."
+    "After the drone has taken off, you can control it with the keyboard of your computer."
+  ]
+  title "DJI Mavic 2 PRO demo"
+  basicTimeStep 8
+  defaultDamping Damping {
+    linear 0.5
+    angular 0.5
+  }
+  coordinateSystem "NUE"
+}
+Viewpoint {
+  orientation 0.2628325973660671 -0.91797828403606 -0.2970435924237679 4.503366404723168
+  position 4.263651960892863 4.780744013921713 -0.3263886719427779
+  near 0.2
+  followSmoothness 0.2
+}
+TexturedBackground {
+  luminosity 3
+}
+TexturedBackgroundLight {
+}
+Floor {
+  size 400 400
+  tileSize 6 6
+  appearance SandyGround {
+  }
+}
+Pedestrian {
+  translation -2 1.27 0
+  rotation 0 1 0 -1.5707953071795862
+}
+Road {
+  translation -43.8 0.01 -9.2
+  rotation 0 1 0 1.1781
+  width 3
+  numberOfLanes 1
+  rightBorder FALSE
+  leftBorder FALSE
+  wayPoints [
+    0 0 0
+    0 0 100
+    200 0 200
+  ]
+  splineSubdivision 8
+  appearance NULL
+}
+Windmill {
+  translation -43.8656 0 19.8433
+  rotation 0 1 0 -1.0472
+}
+Windmill {
+  translation -44.258 0 27.3356
+  rotation 0 1 0 -1.0472
+  name "windmill(1)"
+}
+Windmill {
+  translation -46.2448 0 -30.573
+  rotation 0 1 0 -1.0472
+  name "windmill(2)"
+}
+Windmill {
+  translation -38.75 0 -23.4
+  rotation 0 1 0 -1.5708
+  name "windmill(3)"
+}
+SmallManor {
+  translation -50.35 0 -11.25
+  rotation 0 1 0 4.32
+}
+SquareManhole {
+  translation 0 -0.03 0
+}
+TeslaModel3Simple {
+  translation -41.5139 0.31 -4.34169
+  rotation 0 -1 0 -1.309
+}
+Pine {
+  translation -14.0083 0 14.4828
+  rotation 0 1 0 3.14159
+}
+Pine {
+  translation -19.6195 0 24.3783
+  rotation 0 1 0 2.87979
+  name "pine tree(1)"
+}
+Pine {
+  translation -22.0129 0 -6.20205
+  name "pine tree(3)"
+}
+Pine {
+  translation -10.6926 0 25.1339
+  name "pine tree(4)"
+}
+Pine {
+  translation -14.3441 0 -14.5621
+  name "pine tree(5)"
+}
+Pine {
+  translation -26.6328 0 7.1707
+  name "pine tree(6)"
+}
+Pine {
+  translation -9.37029 0 -14.0209
+  rotation 0 1 0 -2.618
+  name "pine tree(2)"
+}
+Forest {
+  translation 0 -0.01 0
+  shape [
+    200 200
+    200 0
+    50 0
+    50 50
+    -50 50
+    -50 -50
+    50 -50
+    50 0
+    200 0
+    200 -200
+    -200 -200
+    -200 200
+  ]
+  density 0.01
+  type "cherry tree"
+  randomSeed 1
+  maxHeight 12
+  minHeight 6
+  maxRadius 6
+  minRadius 3
+}
+Mavic2Pro {
+  hidden position_0_0 -2.6764356634654327e-09
+  hidden translation_6 0.0412774 -0.00469654 -0.00405862
+  hidden rotation_6 0 0 1 0
+  hidden position_6_0 -6.2418378979224815e-09
+  hidden translation_7 0.000625212 -0.00530346 -0.0207448
+  hidden rotation_7 0 1 0 0
+  hidden position_7_0 -3.084112404567161e-13
+  hidden translation_8 0.00754686 0.0160388 -0.00586401
+  hidden rotation_8 1 0 0 0
+  translation -0.009997723437782616 0.08571033711409932 -0.009999932114562377
+  rotation -0.015472740865095482 -0.706701894593555 -0.7073422272620246 -3.0739115308789517
+  name "Mavic 2 PRO(1)"
+  controller "mavic2proPython"
+  cameraSlot [
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position 0.019135386381823764
+        axis 0 1 0
+      }
+      device [
+        RotationalMotor {
+          name "arrow"
+        }
+      ]
+      endPoint Camera {
+        translation 0.011720098944493142 0.19 0.08979218385112259
+        rotation 6.234804590936875e-05 0.9999999935794552 -9.462457841626659e-05 0.01914022996220433
+        children [
+          Compass {
+            name "compass2"
+          }
+        ]
+        width 95
+        height 95
+      }
+    }
+  ]
+}
